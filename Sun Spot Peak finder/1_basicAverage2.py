@@ -1,13 +1,14 @@
-
 import imageGen as data_gen
-row_data = []
-colum_data = []
 
-sensor_width = 752  # Number of pixels in the sensor width
-sensor_height = 480  # Number of pixels in the sensor height
+#Gen Sun Spot Image
+sensor_width = 752  
+sensor_height = 480  
  
 rawData = data_gen.genSunSpot(sensor_height, sensor_width,400,200,10)
 
+# loade  image
+row_data = []
+colum_data = []
 for i in range(len(rawData)) :
     mData = 0
     for j in range(len(rawData[i])):
@@ -23,8 +24,9 @@ for i in range(len(rawData[0])) :
     colum_data.append(mData)
 
 peakPoint = [row_data.index(max(row_data)),colum_data.index(max(colum_data))]
+print('Peak Point = ',peakPoint)
 
-# rawData[peakPoint[0]][peakPoint[1]] = 0
+#Select Sun Spot
 fillData = rawData[peakPoint[0]-15:peakPoint[0]+15]
 fillData2 = []
 for i in range(len(fillData)):
@@ -32,7 +34,5 @@ for i in range(len(fillData)):
     for j in range(len(fillData2[-1])):
         if fillData2[-1][j] <=125 : fillData2[-1][j] = 0
 
-# print(fillData2)
-print('Peak Point = ',peakPoint)
-data_gen.sunSpotPlot(rawData,fillData2)
-# data_gen.sunSpotPlot3D(rawData)
+# print(range(len(peakPoint[0])))
+data_gen.sunSpotPlot(rawData,fillData2,row_data,colum_data)

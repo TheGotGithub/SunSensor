@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
 
 # Define sensor parameters
-sensor_width = 752  # Number of pixels in the sensor width
-sensor_height = 480  # Number of pixels in the sensor height
+# sensor_width = 752  # Number of pixels in the sensor width
+# sensor_height = 480  # Number of pixels in the sensor height
 sun_intensity = 1000  # Intensity of sunlight hitting the sensor (arbitrary units)
-def genSunSpot(width_pos,height_pos,noiseVal):
+def genSunSpot(sensor_height, sensor_width,width_pos,height_pos,noiseVal):
     # Create a 2D array to represent the sensor
     sensor_data = np.zeros((sensor_height, sensor_width))
 
@@ -37,23 +38,51 @@ def genSunSpot(width_pos,height_pos,noiseVal):
     return sensor_data
 
 # Now sensor_data contains the simulated raw data from the CMOS array sun sensor
-def sunSpotPlot(sensor_data,sensor_data2):
+def sunSpotPlot(sensor_data,sensor_data2,row,col):
 
     fig = plt.figure(figsize=(10,7))
     
-    fig.add_subplot(1,2,1)
-    plt.imshow(sensor_data)
+    fig.add_subplot(2,2,1)
+    plt.imshow(sensor_data, cmap='gray')
     plt.colorbar(label='Intensity')
     plt.title('Sun Sensor Data')
     # plt.xlabel('Pixels')
     # plt.ylabel('Pixels')
     
-    fig.add_subplot(1,2,2)
-    plt.imshow(sensor_data2)
+    fig.add_subplot(2,2,4)
+    plt.imshow(sensor_data2, cmap='gray')
     plt.colorbar(label='Intensity')
     plt.title('Sun Sensor Fill Data')
-    # plt.xlabel('Pixels')
-    # plt.ylabel('Pixels')
+    # # plt.xlabel('Pixels')
+    # # plt.ylabel('Pixels')
+
+    fig.add_subplot(2,2,2)
+    x1 = np.linspace(0,1,len(col))
+    plt.plot(col,x1)
+
+    fig.add_subplot(2,2,3)
+    x2 = np.linspace(0,1,len(row))
+    plt.plot(x2,row)
 
     plt.show()
 
+
+
+def sunSpotPlot3D(sensorData):
+    fig = plt.figure()
+
+    # syntax for 3-D projection
+    ax = plt.axes(projection ='3d')
+    x=[]
+    y=[]
+    z=[]
+    for i in range(len(sensorData)):
+        for j in range(len(sensorData[0])):
+            z.append(sensorData[i][j])
+            y.append(j)
+            x.append(i)
+
+    # plotting
+    ax.scatter(x, y, z)
+    ax.set_title('3D line plot geeks for geeks')
+    plt.show()
