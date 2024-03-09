@@ -58,11 +58,17 @@ def sunSpotPlot(sensor_data,sensor_data2,row,col):
 
     fig.add_subplot(2,2,2)
     x1 = np.linspace(0,1,len(col))
+    plt.title('Col Peak')
     plt.plot(col,x1)
+    plt.xlabel('Val')
+    plt.ylabel('Col index')
 
     fig.add_subplot(2,2,3)
     x2 = np.linspace(0,1,len(row))
+    plt.title('Row Peak')
     plt.plot(x2,row)
+    plt.xlabel('Row index')
+    plt.ylabel('Val')
 
     plt.show()
 
