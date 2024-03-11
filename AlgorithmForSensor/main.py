@@ -36,8 +36,8 @@ data.Xc, data.Yc = sunSpot.findCentroid(data.roiData)
 data.roiData[math.ceil(data.Yc)][math.ceil(data.Xc)] = 0
 
 # Printing the centroid coordinates
-print(data.Xc, data.Yc)
-print(math.ceil(data.Xc), math.ceil(data.Yc))
+# print(data.Xc, data.Yc)
+# print(math.ceil(data.Xc), math.ceil(data.Yc))
 
 # Plotting the sun spot
 data.sunSpotPlot()
@@ -45,7 +45,11 @@ data.sunSpotPlot()
 data.alpha ,data.beta = sunSpot.findAngle(data.peakPoint[1],data.peakPoint[0],data.coordinateX,data.coordinateY,data.Px,data.Py,data.h)
 
 
-print("Peak X : ",data.peakPoint[1])
-print("Peak Y : ",data.peakPoint[0])
-print("Alpha : ",data.alpha)
-print("Beta : ",data.beta)
+# print("Peak X : ",data.peakPoint[1])
+# print("Peak Y : ",data.peakPoint[0])
+# print("Alpha : ",data.alpha)
+# print("Beta : ",data.beta)
+
+data.printAll()
+data.clearAll()
+data.printAll()

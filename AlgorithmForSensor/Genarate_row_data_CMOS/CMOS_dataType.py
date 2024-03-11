@@ -21,13 +21,14 @@ class CMOS_datatype(object):
         self.alpha = None
         self.beta = None
 
-    def dataClear(self):
-        self.rawData = None 
-        self.roiData = None
-        self.sumRowVal = None
-        self.sumColVal = None
+    def printAll(self):
+        exclude_attributes = ['rawData', 'roiData', 'sumRowVal', 'sumColVal']
+        attributes = vars(self)
+        for attribute, value in attributes.items():
+            if attribute not in exclude_attributes:
+                print(f"{attribute}: {value}")
 
-        self.peakPoint = None
-
-        self.Xc = None
-        self.Yc = None
+    def clearAll(self):
+        attributes = vars(self)
+        for attribute in attributes:
+            setattr(self, attribute, None)
