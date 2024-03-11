@@ -11,6 +11,16 @@ class CMOS_datatype(object):
         self.Xc = None
         self.Yc = None
 
+        self.Px = None
+        self.Py = None
+
+        self.coordinateX = None
+        self.coordinateY = None
+        self.h = None
+
+        self.alpha = None
+        self.beta = None
+
     def dataClear(self):
         self.rawData = None 
         self.roiData = None

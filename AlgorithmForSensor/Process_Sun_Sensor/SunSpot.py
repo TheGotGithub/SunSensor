@@ -1,3 +1,4 @@
+import math
 class SunSpot:
     def __init__(self) -> None:
         pass
@@ -45,3 +46,11 @@ class SunSpot:
         Xc = sum(sumXI)/sum(sumI)
         Yc = sum(sumYI)/sum(sumI)
         return Xc,Yc
+    
+    def findAngle(self,Xc,Yc,refCoordinateX,refCoordinateY,Px,Py,h):
+        x = (Xc-refCoordinateX)*Px
+        y = (Yc-refCoordinateY)*Py
+        alpha = math.atan(x/h)
+        beta = math.atan(y/h)
+        return alpha ,beta
+

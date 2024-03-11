@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 import sys
-sys.path.append("SunSensorAlgorithm/Genarate_row_data_CMOS/")  
+sys.path.append("AlgorithmForSensor/Genarate_row_data_CMOS/")  
 from CMOS_dataType import CMOS_datatype  
 
 class CMOS_Sensor(CMOS_datatype):
