@@ -1,8 +1,8 @@
-<img width="528" alt="image" src="https://github.com/TheGotGithub/SunSensor/assets/104858772/5b9b5112-37ac-4ae2-ac38-78b267a15bd1">
-
 # CMOS Sensor Simulation
 
 This repository contains code for simulating a CMOS sensor capturing data from a simulated sun spot. The simulation includes generating sensor data with noise and plotting various aspects of the sensor output.
+
+<img width="528" alt="image" src="https://github.com/TheGotGithub/SunSensor/assets/104858772/5b9b5112-37ac-4ae2-ac38-78b267a15bd1">
 
 ## Files
 
