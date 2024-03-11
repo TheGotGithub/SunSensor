@@ -28,4 +28,3 @@ This section focuses on studying the interface with CMOS and selecting the appro
 
 ---
 
-For more details and updates, please visit the [GitHub repository](https://github.com/TheGotGithub/SunSensor).
